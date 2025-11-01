@@ -1,0 +1,175 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                    🔑 CREDENCIAIS WHATSAPP - RENDIZY                       ║
+║                                                                            ║
+║                            Versão: v1.0.103.63                             ║
+║                            Data: 2025-10-30                                ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                       📋 CREDENCIAIS COMPLETAS                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                            ┃
+┃  📌 URL da Evolution API:                                                  ┃
+┃                                                                            ┃
+┃     https://evo.boravendermuito.com.br                                     ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                            ┃
+┃  📌 Nome da Instância:                                                     ┃
+┃                                                                            ┃
+┃     Rendizy                                                                ┃
+┃                                                                            ┃
+┃     ⚠️  ATENÇÃO: R maiúsculo!                                              ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                                                            ┃
+┃  📌 Global API Key:                                                        ┃
+┃                                                                            ┃
+┃     4de7861e944e291b56fe9781d2b00b36                                       ┃
+┃                                                                            ┃
+┃     ⚠️  ATENÇÃO: Copie exatamente como está!                               ┃
+┃                                                                            ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                      ⚡ PASSO A PASSO RÁPIDO                               │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  1️⃣  ABRIR RENDIZY
+       
+       Terminal:  npm run dev
+       Browser:   http://localhost:5173
+
+
+  2️⃣  IR PARA INTEGRAÇÕES
+       
+       Menu Lateral  →  ⚙️ Configurações
+       Aba Superior  →  Integrações
+       Card Verde    →  WhatsApp Business
+
+
+  3️⃣  PREENCHER CREDENCIAIS
+       
+       URL da Evolution API:  https://evo.boravendermuito.com.br
+       Nome da Instância:     Rendizy
+       API Key:               4de7861e944e291b56fe9781d2b00b36
+
+
+  4️⃣  SALVAR E TESTAR
+       
+       Botão:  💾 Salvar Configurações
+       Botão:  🔄 Testar Conexão
+
+
+  5️⃣  GERAR QR CODE
+       
+       Aba:    ⚡ Status & Conexão
+       Botão:  📱 Gerar QR Code
+
+
+  6️⃣  CONECTAR WHATSAPP
+       
+       WhatsApp:  Configurações → Dispositivos conectados
+       Ação:      Conectar dispositivo
+       Scanner:   Escanear QR Code da tela
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                          ⚠️  PONTOS DE ATENÇÃO                             │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  ❌  ERRADO                           ✅  CORRETO
+  
+  rendizy                              Rendizy
+  rendizy-admin-master                 Rendizy
+  RENDIZY                              Rendizy
+  
+  https://...br/manager                https://...br
+  https://...br/                       https://...br
+  
+  4de786... (incompleto)               4de7861e944e291b56fe9781d2b00b36
+  4de786 1e944... (com espaço)         4de7861e944e291b56fe9781d2b00b36
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                           🧪 TESTAR PRIMEIRO                               │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  Execute este comando para testar se as credenciais estão corretas:
+  
+      bash TESTE_CREDENCIAIS_CORRETAS.sh
+  
+  ✅ Se passar: pode configurar no RENDIZY
+  ❌ Se falhar: verifique se copiou as credenciais corretamente
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                        📚 DOCUMENTAÇÃO COMPLETA                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  Guia Rápido (1 min):
+    COPIAR_COLAR_AGORA.md
+
+  Guia Completo (3 min):
+    TESTE_AGORA_WHATSAPP_v1.0.103.63.md
+
+  Visão Geral:
+    START_HERE_v1.0.103.63.md
+
+  Changelog:
+    CHANGELOG_v1.0.103.63_GLOBAL_API_KEY_CONFIGURADA.md
+
+  Resumo Executivo:
+    RESUMO_EXECUTIVO_v1.0.103.63.md
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                            ✅ STATUS FINAL                                 │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  ✅  Global API Key obtida
+  ✅  Credenciais documentadas
+  ✅  Backend pronto
+  ✅  Frontend pronto
+  ✅  Scripts de teste criados
+  ✅  Documentação completa
+  
+  🔄  PRÓXIMO PASSO: Configurar no RENDIZY
+
+
+┌────────────────────────────────────────────────────────────────────────────┐
+│                        ⏱️  TEMPO ESTIMADO                                  │
+└────────────────────────────────────────────────────────────────────────────┘
+
+  Testar credenciais:     1 minuto
+  Configurar RENDIZY:     2 minutos
+  Gerar QR Code:          30 segundos
+  Conectar WhatsApp:      30 segundos
+  
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TOTAL:                  ~4 minutos
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                   🎉 PRONTO PARA CONECTAR WHATSAPP! 🚀                     ║
+║                                                                            ║
+║                       Versão: v1.0.103.63                                  ║
+║                       Status: ✅ READY TO ROCK!                            ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+                        Desenvolvido com 💚 para o RENDIZY
+                              Data: 2025-10-30

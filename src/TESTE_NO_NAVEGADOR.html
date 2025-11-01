@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Teste WhatsApp Evolution API - RENDIZY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .test-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .result.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .result.loading {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .result.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-badge.connected {
+            background: #28a745;
+            color: white;
+        }
+
+        .status-badge.disconnected {
+            background: #ffc107;
+            color: #333;
+        }
+
+        .status-badge.error {
+            background: #dc3545;
+            color: white;
+        }
+
+        .instructions {
+            background: #e7f3ff;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .instructions h3 {
+            color: #004085;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #004085;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+
+        .emoji {
+            font-size: 24px;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ddd, transparent);
+            margin: 30px 0;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #e83e8c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste WhatsApp Evolution API</h1>
+        <p class="subtitle">RENDIZY v1.0.103.86 - Testador de Integração</p>
+
+        <!-- TESTE 1: HEALTH CHECK -->
+        <div class="test-section">
+            <div class="test-title">
+                <span class="emoji">🔍</span>
+                TESTE 1: Health Check
+            </div>
+            <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                Verifica se as variáveis de ambiente estão configuradas corretamente
+            </p>
+            <button onclick="testHealth()">Executar Teste 1</button>
+            <div id="health-result"></div>
+        </div>
+
+        <!-- TESTE 2: STATUS -->
+        <div class="test-section">
+            <div class="test-title">
+                <span class="emoji">📱</span>
+                TESTE 2: Status da Instância
+            </div>
+            <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                Verifica se o WhatsApp está conectado ou desconectado
+            </p>
+            <button onclick="testStatus()">Executar Teste 2</button>
+            <div id="status-result"></div>
+        </div>
+
+        <!-- TESTE 3: OBTER QR CODE -->
+        <div class="test-section">
+            <div class="test-title">
+                <span class="emoji">📷</span>
+                TESTE 3: Obter QR Code
+            </div>
+            <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                Solicita um QR Code para conectar o WhatsApp (só funciona se desconectado)
+            </p>
+            <button onclick="testQRCode()">Executar Teste 3</button>
+            <div id="qr-result"></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- INSTRUÇÕES -->
+        <div class="instructions">
+            <h3>📋 Próximos Passos</h3>
+            <ol>
+                <li>Execute o <strong>Teste 1</strong> primeiro para verificar configuração</li>
+                <li>Execute o <strong>Teste 2</strong> para ver o status da conexão</li>
+                <li>Se status for <code>DISCONNECTED</code>, execute o <strong>Teste 3</strong></li>
+                <li>Acesse: <strong>Configurações → Integrações → WhatsApp Business</strong></li>
+                <li>Preencha o formulário e conecte o QR Code</li>
+                <li>Clique no botão flutuante verde no canto inferior direito 💬</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        const BASE_URL = 'https://tmtnhgqpcwvgydexwvpz.supabase.co/functions/v1/make-server-67caf26a';
+        const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtdG5oZ3FwY3d2Z3lkZXh3dnB6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAyMTQxNjMsImV4cCI6MjA0NTc5MDE2M30.PJg_bQ23zT0cD0IZDC2Xw7rPFUfCFCdkn8aRJg-gDkc';
+
+        async function testHealth() {
+            const resultDiv = document.getElementById('health-result');
+            resultDiv.innerHTML = '<div class="result loading">⏳ Testando configuração...</div>';
+
+            try {
+                const response = await fetch(`${BASE_URL}/whatsapp/health`, {
+                    headers: {
+                        'Authorization': `Bearer ${ANON_KEY}`
+                    }
+                });
+
+                const data = await response.json();
+                
+                if (data.success && data.data.healthy) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            ✅ CONFIGURAÇÃO OK!
+                            
+${JSON.stringify(data, null, 2)}
+                            
+                            <div class="status-badge connected">✅ TODAS AS VARIÁVEIS CONFIGURADAS</div>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="result error">
+                            ❌ Configuração incompleta
+                            
+${JSON.stringify(data, null, 2)}
+                            
+                            <div class="status-badge error">❌ VERIFIQUE AS VARIÁVEIS DE AMBIENTE</div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        ❌ Erro ao testar: ${error.message}
+                        
+                        Verifique se o backend está rodando!
+                    </div>
+                `;
+            }
+        }
+
+        async function testStatus() {
+            const resultDiv = document.getElementById('status-result');
+            resultDiv.innerHTML = '<div class="result loading">⏳ Verificando status...</div>';
+
+            try {
+                const response = await fetch(`${BASE_URL}/whatsapp/status`, {
+                    headers: {
+                        'Authorization': `Bearer ${ANON_KEY}`
+                    }
+                });
+
+                const data = await response.json();
+                const status = data.data?.status || 'UNKNOWN';
+                
+                let statusClass = 'info';
+                let statusBadgeClass = 'disconnected';
+                let statusMessage = '';
+
+                if (status === 'CONNECTED') {
+                    statusClass = 'success';
+                    statusBadgeClass = 'connected';
+                    statusMessage = '🎉 WhatsApp está CONECTADO e funcionando!';
+                } else if (status === 'DISCONNECTED') {
+                    statusClass = 'info';
+                    statusBadgeClass = 'disconnected';
+                    statusMessage = '⚠️ WhatsApp DESCONECTADO - Precisa escanear QR Code';
+                } else {
+                    statusClass = 'error';
+                    statusBadgeClass = 'error';
+                    statusMessage = '❌ Status desconhecido';
+                }
+
+                resultDiv.innerHTML = `
+                    <div class="result ${statusClass}">
+                        ${statusMessage}
+                        
+${JSON.stringify(data, null, 2)}
+                        
+                        <div class="status-badge ${statusBadgeClass}">STATUS: ${status}</div>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        ❌ Erro ao verificar status: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        async function testQRCode() {
+            const resultDiv = document.getElementById('qr-result');
+            resultDiv.innerHTML = '<div class="result loading">⏳ Solicitando QR Code...</div>';
+
+            try {
+                const response = await fetch(`${BASE_URL}/whatsapp/qr-code`, {
+                    headers: {
+                        'Authorization': `Bearer ${ANON_KEY}`
+                    }
+                });
+
+                const data = await response.json();
+                
+                if (data.success && data.data?.qrCode) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            ✅ QR CODE RECEBIDO!
+                            
+                            O QR Code foi gerado, mas você precisa escaneá-lo pelo painel de Integrações.
+                            
+                            Acesse: Configurações → Integrações → WhatsApp Business
+                            
+                            <div class="status-badge connected">✅ QR CODE DISPONÍVEL</div>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="result info">
+                            ℹ️ Não foi possível obter QR Code
+                            
+${JSON.stringify(data, null, 2)}
+                            
+                            Possíveis motivos:
+                            • WhatsApp já está conectado
+                            • Instância não está pronta
+                            
+                            <div class="status-badge disconnected">⚠️ QR CODE NÃO DISPONÍVEL</div>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        ❌ Erro ao obter QR Code: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Executar teste 1 automaticamente ao carregar a página
+        window.addEventListener('load', () => {
+            console.log('🚀 Testador WhatsApp Evolution API carregado!');
+        });
+    </script>
+</body>
+</html>

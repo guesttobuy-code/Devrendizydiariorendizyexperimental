@@ -1,0 +1,87 @@
+================================================================================
+📋 RESUMO ULTRA-RÁPIDO - CREDENCIAIS EVOLUTION API
+================================================================================
+
+🌐 URL BASE
+https://evo.boravendermuito.com.br/manager
+
+📛 INSTÂNCIA
+Rendizy
+
+🔑 GLOBAL API KEY
+4de7861e944e291b56fe9781d2b00b36
+
+🎫 INSTANCE TOKEN
+0FF3641E80A6-453C-AB4E-28C2F2D01C50
+
+================================================================================
+CONFIGURAR NO SUPABASE (4 VARIÁVEIS)
+================================================================================
+
+EVOLUTION_API_URL=https://evo.boravendermuito.com.br/manager
+EVOLUTION_INSTANCE_NAME=Rendizy
+EVOLUTION_GLOBAL_API_KEY=4de7861e944e291b56fe9781d2b00b36
+EVOLUTION_INSTANCE_TOKEN=0FF3641E80A6-453C-AB4E-28C2F2D01C50
+
+================================================================================
+HEADERS HTTP
+================================================================================
+
+apikey: 4de7861e944e291b56fe9781d2b00b36
+Authorization: Bearer 0FF3641E80A6-453C-AB4E-28C2F2D01C50
+Content-Type: application/json
+
+================================================================================
+TESTE RÁPIDO (COPIE E COLE NO TERMINAL)
+================================================================================
+
+# 1. Servidor online?
+curl https://evo.boravendermuito.com.br/
+
+# 2. Global Key válida?
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/fetchInstances \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36"
+
+# 3. Instance Token válido?
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/connectionState/Rendizy \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36" \
+  -H "Authorization: Bearer 0FF3641E80A6-453C-AB4E-28C2F2D01C50"
+
+# 4. Gerar QR Code
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/connect/Rendizy \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36" \
+  -H "Authorization: Bearer 0FF3641E80A6-453C-AB4E-28C2F2D01C50"
+
+================================================================================
+IMPORTANTE
+================================================================================
+
+✅ Use "Rendizy" (primeira letra MAIÚSCULA)
+✅ Não adicione "/" no final da URL
+✅ Use AMBOS os headers (apikey + Authorization)
+✅ Para endpoints API: https://evo.boravendermuito.com.br/ (SEM /manager)
+✅ Para painel web: https://evo.boravendermuito.com.br/manager/ (COM /manager)
+
+================================================================================
+DOCUMENTAÇÃO COMPLETA
+================================================================================
+
+📖 🔑_CREDENCIAIS_EVOLUTION_API_QUE_FUNCIONAM.md .... Detalhes completos
+📖 🎯_MAPA_CREDENCIAIS_EVOLUTION.md ................. Onde usar cada uma
+📖 ⚡_COPIAR_COLAR_CREDENCIAIS.txt ................. Referência rápida
+📖 🧪_TESTAR_CREDENCIAIS_AGORA.sh .................. Script de teste
+
+================================================================================
+STATUS
+================================================================================
+
+✅ Credenciais: VÁLIDAS e TESTADAS
+✅ Servidor: ONLINE
+✅ Instância: Rendizy (ATIVA)
+✅ Versão: v1.0.103.152
+✅ Data: 2025-10-31
+
+================================================================================

@@ -1,0 +1,99 @@
+================================================================================
+⚡ CREDENCIAIS EVOLUTION API - COPIAR E COLAR
+================================================================================
+
+EVOLUTION_API_URL=https://evo.boravendermuito.com.br/manager
+EVOLUTION_INSTANCE_NAME=Rendizy
+EVOLUTION_GLOBAL_API_KEY=4de7861e944e291b56fe9781d2b00b36
+EVOLUTION_INSTANCE_TOKEN=0FF3641E80A6-453C-AB4E-28C2F2D01C50
+
+================================================================================
+CONFIGURAR NO SUPABASE
+================================================================================
+
+Acesse: Supabase Dashboard → Project Settings → Edge Functions → Manage Secrets
+
+Adicione 4 variáveis (uma por uma):
+
+1. Nome: EVOLUTION_API_URL
+   Valor: https://evo.boravendermuito.com.br/manager
+
+2. Nome: EVOLUTION_INSTANCE_NAME
+   Valor: Rendizy
+
+3. Nome: EVOLUTION_GLOBAL_API_KEY
+   Valor: 4de7861e944e291b56fe9781d2b00b36
+
+4. Nome: EVOLUTION_INSTANCE_TOKEN
+   Valor: 0FF3641E80A6-453C-AB4E-28C2F2D01C50
+
+================================================================================
+HEADERS PARA REQUISIÇÕES
+================================================================================
+
+apikey: 4de7861e944e291b56fe9781d2b00b36
+Authorization: Bearer 0FF3641E80A6-453C-AB4E-28C2F2D01C50
+Content-Type: application/json
+
+================================================================================
+URLS IMPORTANTES
+================================================================================
+
+Painel Manager:
+https://evo.boravendermuito.com.br/manager/
+
+API Base:
+https://evo.boravendermuito.com.br/
+
+Health Check:
+https://evo.boravendermuito.com.br/
+
+================================================================================
+TESTE RÁPIDO (CURL)
+================================================================================
+
+# 1. Health Check
+curl https://evo.boravendermuito.com.br/
+
+# 2. Listar Instâncias
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/fetchInstances \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36"
+
+# 3. Estado da Conexão
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/connectionState/Rendizy \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36" \
+  -H "Authorization: Bearer 0FF3641E80A6-453C-AB4E-28C2F2D01C50"
+
+# 4. Gerar QR Code
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/connect/Rendizy \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36" \
+  -H "Authorization: Bearer 0FF3641E80A6-453C-AB4E-28C2F2D01C50"
+
+================================================================================
+ATENÇÃO
+================================================================================
+
+✅ Use "Rendizy" (primeira letra MAIÚSCULA)
+✅ Não adicione "/" no final da URL
+✅ Use AMBOS os headers (apikey + Authorization)
+✅ Para API endpoints: SEM /manager
+✅ Para painel web: COM /manager
+
+❌ Não use "rendizy" (minúsculo)
+❌ Não use só um header
+❌ Não misture /manager nos endpoints
+
+================================================================================
+STATUS
+================================================================================
+
+✅ Credenciais: VÁLIDAS
+✅ Servidor: ONLINE  
+✅ Instância: Rendizy (ATIVA)
+✅ Testado em: 2025-10-31
+✅ Versão: v1.0.103.152
+
+================================================================================

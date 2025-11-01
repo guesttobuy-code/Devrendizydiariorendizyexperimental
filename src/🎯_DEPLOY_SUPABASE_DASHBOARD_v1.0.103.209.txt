@@ -1,0 +1,409 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║   🎯 DEPLOY VIA SUPABASE DASHBOARD                           ║
+║   (Método Visual - Sem Terminal)                            ║
+║                                                              ║
+║   RENDIZY v1.0.103.209                                       ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  📋 INFORMAÇÕES DO PROJETO                                   │
+└──────────────────────────────────────────────────────────────┘
+
+Project ID: uknccixtubkdkofyieie
+Função: make-server-67caf26a
+Dashboard: https://supabase.com/dashboard/project/uknccixtubkdkofyieie
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🚀 PASSO A PASSO VISUAL                                     │
+└──────────────────────────────────────────────────────────────┘
+
+
+PASSO 1: Abrir Dashboard Supabase
+─────────────────────────────────────────────────────────────
+
+1. Abra seu navegador
+2. Acesse: https://supabase.com/dashboard
+3. Faça login se necessário
+
+
+PASSO 2: Acessar o Projeto
+─────────────────────────────────────────────────────────────
+
+1. Na lista de projetos, procure por:
+   
+   Nome do projeto: [seu projeto]
+   ID: uknccixtubkdkofyieie
+
+2. Clique no card do projeto
+
+
+PASSO 3: Navegar até Edge Functions
+─────────────────────────────────────────────────────────────
+
+No menu lateral ESQUERDO, clique em:
+
+   ┌─────────────────────┐
+   │  ⚡ Edge Functions  │
+   └─────────────────────┘
+
+OU acesse direto:
+https://supabase.com/dashboard/project/uknccixtubkdkofyieie/functions
+
+
+PASSO 4: Localizar a Função
+─────────────────────────────────────────────────────────────
+
+Na lista de funções, procure:
+
+   ┌──────────────────────────────┐
+   │  make-server-67caf26a        │
+   │  Status: Deployed ✅         │
+   └──────────────────────────────┘
+
+Clique no NOME da função
+
+
+PASSO 5: Visualizar Detalhes
+─────────────────────────────────────────────────────────────
+
+Você verá:
+
+   ┌──────────────────────────────────────────┐
+   │  make-server-67caf26a                    │
+   │  ────────────────────────────────────    │
+   │                                          │
+   │  Tabs:                                   │
+   │    [Details] [Logs] [Invocations]       │
+   │                                          │
+   │  Buttons:                                │
+   │    [⚙️ Settings]  [📝 Edit]  [🚀 Deploy] │
+   └──────────────────────────────────────────┘
+
+
+PASSO 6A: Se Tiver Botão "Redeploy" (Mais Simples)
+─────────────────────────────────────────────────────────────
+
+1. Clique em: [🚀 Deploy] ou [Redeploy]
+
+2. Confirme o deploy
+
+3. Aguarde 1-2 minutos
+
+4. Verifique status: "Deployed" com checkmark verde ✅
+
+5. PRONTO! Pule para "VERIFICAÇÃO"
+
+
+PASSO 6B: Se Precisar Editar Código (Menos Comum)
+─────────────────────────────────────────────────────────────
+
+1. Clique em: [📝 Edit]
+
+2. Procure a seção de CORS (linhas 44-80)
+
+3. Substitua todo o bloco CORS por:
+
+   app.use(
+     "/*",
+     cors({
+       origin: "*",
+       allowHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+       allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+       exposeHeaders: ["Content-Length", "Content-Type"],
+       maxAge: 600,
+       credentials: false,
+     }),
+   );
+
+4. Clique em: [💾 Save]
+
+5. Clique em: [🚀 Deploy]
+
+6. Aguarde 1-2 minutos
+
+
+PASSO 7: Verificar Deploy
+─────────────────────────────────────────────────────────────
+
+Na página da função, verifique:
+
+✅ Status: Deployed
+✅ Última atualização: "agora" ou "há 1 minuto"
+✅ Version: deve incrementar
+
+
+PASSO 8: Ver Logs (Opcional)
+─────────────────────────────────────────────────────────────
+
+1. Clique na tab: [Logs]
+
+2. Você verá requisições em tempo real
+
+3. Procure por:
+   - "OPTIONS /organizations" (requisições CORS)
+   - "GET /health" (health checks)
+
+4. NÃO deve ver erros de CORS
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ⏳ APÓS O DEPLOY                                            │
+└──────────────────────────────────────────────────────────────┘
+
+
+PASSO 9: Aguardar Propagação
+─────────────────────────────────────────────────────────────
+
+⏰ Aguarde 2-3 minutos
+
+O Supabase precisa:
+  • Propagar mudanças para CDN
+  • Atualizar cache global
+  • Reiniciar edge functions
+
+
+PASSO 10: Testar CORS
+─────────────────────────────────────────────────────────────
+
+Opção A: Terminal
+
+  curl -I https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health
+
+  Deve retornar:
+    HTTP/2 200
+    access-control-allow-origin: *
+
+Opção B: Script de Teste
+
+  chmod +x 🧪_TESTAR_CORS_AGORA.sh
+  ./🧪_TESTAR_CORS_AGORA.sh
+
+  Deve mostrar:
+    ✅ TESTE 1: Backend Online
+    ✅ TESTE 2: CORS Configurado
+    ✅ TESTE 3: CORS em Requisições Reais
+
+
+PASSO 11: Ativar Produção no RENDIZY
+─────────────────────────────────────────────────────────────
+
+1. Abra: https://suacasaavenda.com.br
+
+2. Recarregue: Ctrl + Shift + R
+
+3. Localize a FAIXA AMARELA no topo
+
+4. Clique em: [🚀 Ambiente de Produção]
+   (Botão verde com foguete)
+
+5. Aguarde redirecionamento automático
+
+
+PASSO 12: Verificar no Console
+─────────────────────────────────────────────────────────────
+
+1. Pressione F12 (abrir console)
+
+2. Verifique as mensagens:
+
+   ✅ SUCESSO:
+      ✅ Backend conectado
+      ✅ Organizações carregadas: 1
+      🌐 Modo offline DESATIVADO
+      🚀 Ambiente de Produção ativo
+
+   ❌ ERRO (ainda):
+      ❌ Access denied by CORS
+      🎭 MOCK MODE ATIVO
+      
+      → Aguarde mais 2 minutos
+      → Limpe cache: Ctrl+Shift+Delete
+      → Recarregue: Ctrl+Shift+R
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🎯 VISUAL DO DASHBOARD                                      │
+└──────────────────────────────────────────────────────────────┘
+
+O dashboard se parece com isso:
+
+╔════════════════════════════════════════════════════════════╗
+║  Supabase Dashboard                                        ║
+╠════════════════════════════════════════════════════════════╣
+║                                                            ║
+║  MENU LATERAL:                ÁREA PRINCIPAL:              ║
+║                                                            ║
+║  📊 Home                      make-server-67caf26a         ║
+║  🔐 Auth                      ─────────────────────        ║
+║  📁 Storage                                                ║
+║  🗄️  Database                 Status: ✅ Deployed          ║
+║  ⚡ Edge Functions ← AQUI    Version: v123               ║
+║  📈 Logs                      Updated: 2 min ago          ║
+║  ⚙️  Settings                                              ║
+║                               [Details] [Logs] [...]       ║
+║                                                            ║
+║                               URL:                         ║
+║                               https://uknccixt...          ║
+║                                                            ║
+║                               [🚀 Deploy Function]         ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🐛 TROUBLESHOOTING                                          │
+└──────────────────────────────────────────────────────────────┘
+
+
+PROBLEMA: Não encontro a função "make-server-67caf26a"
+──────────────────────────────────────────────────────────────
+
+Solução:
+1. Verifique se está no projeto correto
+   ID: uknccixtubkdkofyieie
+
+2. Vá em Edge Functions no menu lateral
+
+3. Se lista estiver vazia:
+   → Função não foi criada ainda
+   → Use deploy via CLI (método alternativo)
+
+
+PROBLEMA: Botão "Deploy" está desabilitado
+──────────────────────────────────────────────────────────────
+
+Solução:
+1. Verifique se tem permissão de admin
+2. Recarregue página do dashboard
+3. Tente "Edit" → modificar algo → "Save" → "Deploy"
+
+
+PROBLEMA: Deploy falha com erro
+──────────────────────────────────────────────────────────────
+
+Solução:
+1. Veja a mensagem de erro
+2. Verifique logs da função
+3. Comum: sintaxe incorreta no código
+
+Se erro persistir:
+→ Use método CLI (alternativo)
+
+
+PROBLEMA: CORS ainda não funciona após deploy
+──────────────────────────────────────────────────────────────
+
+Causas possíveis:
+
+1. Cache não atualizou ainda
+   → Aguarde 5 minutos
+   → Recarregue navegador
+
+2. Deploy não aplicou mudanças
+   → Verifique "Version" incrementou
+   → Veja logs da função
+   → Tente redesployar
+
+3. Código CORS incorreto
+   → Verifique se tem: origin: "*"
+   → Não deve ter: origin: function(...)
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  📱 MÉTODO ALTERNATIVO: DEPLOY VIA CLI                       │
+└──────────────────────────────────────────────────────────────┘
+
+Se dashboard não funcionar, use terminal:
+
+# Instalar Supabase CLI
+npm install -g supabase
+
+# Login
+supabase login
+
+# Linkar projeto
+supabase link --project-ref uknccixtubkdkofyieie
+
+# Deploy
+supabase functions deploy make-server-67caf26a --no-verify-jwt
+
+OU use o script automático:
+
+chmod +x ⚡_DEPLOY_BACKEND_AGORA_v1.0.103.209.sh
+./⚡_DEPLOY_BACKEND_AGORA_v1.0.103.209.sh
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ✅ CHECKLIST VISUAL                                         │
+└──────────────────────────────────────────────────────────────┘
+
+ANTES DO DEPLOY:
+  [ ] Abri dashboard Supabase
+  [ ] Encontrei o projeto (uknccixtubkdkofyieie)
+  [ ] Naveguei até Edge Functions
+  [ ] Localizei a função (make-server-67caf26a)
+
+DURANTE O DEPLOY:
+  [ ] Cliquei em "Deploy" ou "Redeploy"
+  [ ] Aguardei conclusão (1-2 minutos)
+  [ ] Status mudou para "Deployed ✅"
+  [ ] Version incrementou
+
+APÓS O DEPLOY:
+  [ ] Aguardei 2-3 minutos (propagação)
+  [ ] Testei CORS (curl ou script)
+  [ ] Headers mostram: access-control-allow-origin: *
+  [ ] Backend responde: HTTP 200
+
+NO NAVEGADOR:
+  [ ] Recarreguei página (Ctrl+Shift+R)
+  [ ] Ativei "🚀 Ambiente de Produção"
+  [ ] Console mostra: "✅ Backend conectado"
+  [ ] Sem erros CORS
+  [ ] Sistema funcionando!
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🎉 SUCESSO!                                                 │
+└──────────────────────────────────────────────────────────────┘
+
+Quando tudo funcionar, você verá:
+
+DASHBOARD SUPABASE:
+  ✅ Function: Deployed
+  ✅ Logs: Sem erros
+  ✅ Invocations: Requisições chegando
+
+NAVEGADOR (Console):
+  ✅ Backend conectado
+  ✅ Organizações carregadas: 1
+  ✅ Propriedades: 3
+  🚀 Ambiente de Produção ativo
+
+DOMÍNIO:
+  ✅ https://suacasaavenda.com.br funcionando
+  ✅ Dados salvando no backend real
+  ✅ Integrações ativas
+  ✅ Sistema 100% operacional
+
+
+═══════════════════════════════════════════════════════════════
+
+              🚀 FAZER DEPLOY AGORA!
+                  
+  Dashboard:
+  https://supabase.com/dashboard/project/uknccixtubkdkofyieie/functions
+  
+  OU Script:
+  ./⚡_DEPLOY_BACKEND_AGORA_v1.0.103.209.sh
+
+═══════════════════════════════════════════════════════════════
+
+RENDIZY v1.0.103.209
+Deploy Visual via Supabase Dashboard
+
+31 de outubro de 2025

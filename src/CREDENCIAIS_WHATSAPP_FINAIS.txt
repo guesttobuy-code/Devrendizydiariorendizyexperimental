@@ -1,0 +1,77 @@
+================================================================================
+🔑 CREDENCIAIS FINAIS - WHATSAPP EVOLUTION API
+================================================================================
+
+Sistema: RENDIZY v1.0.103.63
+Data: 2025-10-30
+Status: ✅ PRONTO PARA USAR
+
+================================================================================
+📋 CREDENCIAIS COMPLETAS
+================================================================================
+
+URL da Evolution API:
+https://evo.boravendermuito.com.br
+
+Nome da Instância:
+Rendizy
+
+Global API Key:
+4de7861e944e291b56fe9781d2b00b36
+
+================================================================================
+⚡ TESTE RÁPIDO
+================================================================================
+
+1. Testar Credenciais (1 min):
+   bash TESTE_CREDENCIAIS_CORRETAS.sh
+
+2. Configurar no RENDIZY (2 min):
+   - Abrir: http://localhost:5173
+   - Ir: Configurações → Integrações → WhatsApp
+   - Colar as credenciais acima
+   - Salvar → Testar → Gerar QR Code
+
+3. Conectar WhatsApp (30s):
+   - Escanear QR Code com o celular
+   - Aguardar confirmação
+
+================================================================================
+📚 DOCUMENTAÇÃO
+================================================================================
+
+Guia Rápido:
+TESTE_AGORA_WHATSAPP_v1.0.103.63.md
+
+Copiar e Colar:
+COPIAR_COLAR_AGORA.md
+
+Início Rápido:
+START_HERE_v1.0.103.63.md
+
+Changelog:
+CHANGELOG_v1.0.103.63_GLOBAL_API_KEY_CONFIGURADA.md
+
+Resumo Executivo:
+RESUMO_EXECUTIVO_v1.0.103.63.md
+
+================================================================================
+✅ STATUS
+================================================================================
+
+Backend:         ✅ Pronto
+Frontend:        ✅ Pronto
+Credenciais:     ✅ Obtidas
+Documentação:    ✅ Completa
+Scripts Teste:   ✅ Prontos
+Próximo Passo:   🔄 Configurar no RENDIZY
+
+================================================================================
+⏱️ TEMPO ESTIMADO: ~3 MINUTOS
+================================================================================
+
+Versão: v1.0.103.63
+Data: 2025-10-30
+Status: ✅ READY TO ROCK! 🚀
+
+================================================================================

@@ -1,0 +1,66 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 FIX BACKEND OFFLINE - v1.0.103.170
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ ERRO CORRIGIDO:
+
+❌ ANTES: Servidor backend está OFFLINE ou inacessível
+           Erro: Failed to fetch
+
+✅ AGORA: Sistema funciona mesmo sem backend!
+
+O erro era causado pelo Evolution Contacts Service que tentava
+se conectar ao backend automaticamente na inicialização.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 O QUE FOI FEITO:
+
+1. Desabilitei temporariamente o Evolution Contacts Service
+2. Sistema agora funciona em modo offline completo
+3. NotFoundPage import já estava corrigido (v1.0.103.169)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 TESTE AGORA:
+
+1. Ctrl + Shift + R (recarregar forçado)
+2. Espere 3 segundos
+3. Veja se:
+   ✓ Menu lateral aparece
+   ✓ Dashboard Inicial carrega
+   ✓ Botões funcionam
+   ✓ NÃO aparece mais erro de backend
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 MODO OFFLINE:
+
+O sistema agora funciona COMPLETAMENTE OFFLINE:
+- ✅ Dados mockados carregados automaticamente
+- ✅ UI totalmente funcional
+- ✅ Sem dependência de backend
+- ⚠️  WhatsApp Evolution desabilitado (precisa backend)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 STATUS DO TESTE DE ISOLAMENTO:
+
+Módulo "Locais e Anúncios" continua DESABILITADO.
+Se funcionar agora, confirmamos que o problema estava lá.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 PRÓXIMOS PASSOS:
+
+Depois que confirmar que está funcionando:
+
+1. Subir backend: cd supabase/functions && supabase functions serve
+2. Reativar Evolution Service (tirar comentário)
+3. Reativar módulo Properties (se teste passar)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Me avise o resultado!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

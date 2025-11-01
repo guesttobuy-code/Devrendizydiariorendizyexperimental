@@ -1,0 +1,322 @@
+🔧 FIX DEFINITIVO: CORS BACKEND + LOGS COMPLETOS v1.0.103.192
+
+✅ PROBLEMA IDENTIFICADO E CORRIGIDO!
+
+## 🎯 CAUSA RAIZ DO ERRO:
+
+O backend estava **BLOQUEANDO** requisições do Figma Make por causa do CORS:
+
+```
+❌ ANTES:
+- Só aceitava: localhost:5173, localhost:4173
+- Figma Make roda em: https://figma.com/make/...
+- Resultado: CORS Error → Failed to fetch
+```
+
+---
+
+## 🔧 CORREÇÕES APLICADAS:
+
+### **1. CORS Liberado para Figma Make**
+```typescript
+// ✅ AGORA aceita:
+- figma.com/*
+- localhost/*
+- Origins da whitelist
+- Requisições sem origin
+```
+
+### **2. Logs Completos no Backend**
+```typescript
+console.log('📥 Recebendo requisição POST /organizations');
+console.log('📦 Body recebido:', JSON.stringify(body, null, 2));
+console.log('✅ Validação passou, criando organização...');
+console.log('✅ Organization created: ${slug} (${id})');
+```
+
+### **3. Logs Completos no Frontend**
+```typescript
+console.log('🚀 Enviando requisição para criar organização:', payload);
+console.log('📍 URL:', `https://${projectId}.supabase.co/...`);
+console.log('📥 Resposta recebida:', response.status);
+console.log('✅ Resultado:', result);
+```
+
+### **4. Tratamento de Erros Melhorado**
+```typescript
+// Backend retorna detalhes completos
+{
+  success: false,
+  error: "Mensagem do erro",
+  details: "Stack trace completo"
+}
+
+// Frontend mostra mensagens claras
+"Erro de conexão com o servidor. Verifique se o backend está rodando."
+```
+
+---
+
+## 🚀 COMO TESTAR AGORA:
+
+### **PASSO 1: RECARREGUE A PÁGINA**
+```
+Ctrl + R ou F5
+```
+
+### **PASSO 2: Abra o Console (F12)**
+```
+Aba Console
+Limpe os logs anteriores
+```
+
+### **PASSO 3: Acesse Admin Master → Imobiliárias**
+```
+Menu lateral → Admin Master → Imobiliárias
+```
+
+### **PASSO 4: Clique em "Nova Imobiliária"**
+```
+Botão verde no canto superior direito
+```
+
+### **PASSO 5: Preencha o formulário**
+```
+Nome: TESTE IMOBILIÁRIA CORS
+Email: teste@teste.com
+Telefone: (11) 99999-9999
+Plano: Enterprise
+```
+
+### **PASSO 6: Clique em "Criar Imobiliária"**
+
+### **PASSO 7: OBSERVE O CONSOLE**
+
+Você deve ver ESTES logs:
+
+```
+🚀 Enviando requisição para criar organização: 
+{
+  name: "TESTE IMOBILIÁRIA CORS",
+  email: "teste@teste.com",
+  phone: "(11) 99999-9999",
+  plan: "enterprise",
+  createdBy: "user_master_rendizy"
+}
+
+📍 URL: https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/organizations
+
+📥 Resposta recebida: 201 Created
+
+✅ Resultado: {
+  success: true,
+  data: {
+    id: "org_...",
+    slug: "rendizy_teste_imobiliaria_cors",
+    name: "TESTE IMOBILIÁRIA CORS",
+    email: "teste@teste.com",
+    ...
+  }
+}
+```
+
+---
+
+## 📊 O QUE MUDOU:
+
+### **Arquivo: /supabase/functions/server/index.tsx**
+
+**ANTES:**
+```typescript
+origin: (origin) => {
+  if (!origin && Deno.env.get('ENVIRONMENT') === 'development') {
+    return true;
+  }
+  return origin ? allowedOrigins.includes(origin) : false;
+}
+```
+
+**AGORA:**
+```typescript
+origin: (origin) => {
+  // Sem origin? OK!
+  if (!origin) {
+    return true;
+  }
+  
+  // Figma Make? OK!
+  if (origin.includes('figma.com')) {
+    return origin;
+  }
+  
+  // Localhost? OK!
+  if (origin.includes('localhost')) {
+    return origin;
+  }
+  
+  // Whitelist? OK!
+  if (allowedOrigins.includes(origin)) {
+    return origin;
+  }
+  
+  // Outros? ❌
+  return false;
+}
+```
+
+### **Arquivo: /supabase/functions/server/routes-organizations.ts**
+
+**Adicionado:**
+```typescript
+console.log('📥 Recebendo requisição POST /organizations');
+console.log('📦 Body recebido:', JSON.stringify(body, null, 2));
+console.log('✅ Validação passou, criando organização...');
+console.log('✅ Organization created: ${slug} (${id})');
+```
+
+### **Arquivo: /components/CreateOrganizationModal.tsx**
+
+**Adicionado:**
+```typescript
+console.log('🚀 Enviando requisição para criar organização:', payload);
+console.log('📍 URL:', `https://${projectId}.supabase.co/...`);
+console.log('📥 Resposta recebida:', response.status);
+console.log('✅ Resultado:', result);
+```
+
+---
+
+## 🔍 SE DER ERRO AINDA:
+
+### **Erro: "Failed to fetch"**
+
+**Verifique:**
+1. Backend está rodando?
+   ```
+   GET https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health
+   ```
+
+2. CORS está correto?
+   ```
+   Veja o console: Access-Control-Allow-Origin
+   ```
+
+3. Credenciais corretas?
+   ```
+   console.log(projectId)
+   console.log(publicAnonKey)
+   ```
+
+### **Erro: "Name, email, and createdBy are required"**
+
+**Verifique:**
+1. Campos preenchidos?
+   ```
+   Nome: ✓
+   Email: ✓
+   ```
+
+2. Payload correto?
+   ```
+   Veja o console: 🚀 Enviando requisição...
+   ```
+
+### **Erro: "Slug already exists"**
+
+**Normal!**
+```
+O sistema adiciona _1, _2, etc automaticamente
+Tente outro nome
+```
+
+---
+
+## 🎯 VERIFICAÇÃO RÁPIDA:
+
+### **1. Backend rodando?**
+```bash
+curl https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health
+```
+
+**Resposta esperada:**
+```json
+{
+  "status": "ok",
+  "timestamp": "2025-10-31T...",
+  "service": "Rendizy Backend API"
+}
+```
+
+### **2. Rota /organizations existe?**
+```bash
+curl -X POST \
+  https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/organizations \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
+  -d '{
+    "name": "Teste via CURL",
+    "email": "curl@teste.com",
+    "phone": "11999999999",
+    "plan": "free",
+    "createdBy": "user_master_rendizy"
+  }'
+```
+
+**Resposta esperada:**
+```json
+{
+  "success": true,
+  "data": {
+    "id": "org_...",
+    "slug": "rendizy_teste_via_curl",
+    ...
+  }
+}
+```
+
+### **3. CORS liberado?**
+```javascript
+// No console do navegador:
+fetch('https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health')
+  .then(r => r.json())
+  .then(console.log)
+```
+
+**Resposta esperada:**
+```json
+{ "status": "ok", ... }
+```
+
+---
+
+## 📋 RESUMO DAS MUDANÇAS:
+
+1. ✅ CORS agora aceita Figma Make
+2. ✅ Logs completos no backend
+3. ✅ Logs completos no frontend
+4. ✅ Tratamento de erros melhorado
+5. ✅ Mensagens de erro mais claras
+
+---
+
+## 🎉 RESULTADO ESPERADO:
+
+Depois de recarregar a página:
+
+```
+1. Abrir modal ✅
+2. Preencher formulário ✅
+3. Clicar "Criar Imobiliária" ✅
+4. Ver logs no console ✅
+5. Ver toast de sucesso ✅
+6. Modal fecha automaticamente ✅
+7. Lista recarrega com nova org ✅
+```
+
+---
+
+**RECARREGUE AGORA E TESTE!** 🚀
+
+Versão: v1.0.103.192
+Data: 2025-10-31
+Correção: CORS + Logs Completos

@@ -1,0 +1,50 @@
+# WAHA - WhatsApp HTTP API para RENDIZY
+# Deploy na VPS Hostinger
+# Domínio: whatsapp.suacasaavenda.com.br
+
+version: '3.8'
+
+services:
+  waha:
+    image: devlikeapro/waha:latest
+    container_name: rendizy-waha
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      # URL do webhook para receber mensagens no RENDIZY
+      - WHATSAPP_HOOK_URL=https://seu-rendizy-url.supabase.co/functions/v1/make-server-67caf26a/chat/webhook
+      
+      # Eventos que serão enviados ao webhook
+      - WHATSAPP_HOOK_EVENTS=message,message.any,state.change,group.join,presence.update
+      
+      # API Key para proteger o WAHA (gere uma senha forte)
+      - WAHA_API_KEY=rendizy_waha_2025_super_secret_key_change_this
+      
+      # Log level
+      - WAHA_LOG_LEVEL=info
+      
+      # Permite múltiplas sessões (multi-tenant)
+      - SESSIONS_START=default
+      
+    volumes:
+      # Persiste as sessões do WhatsApp (QR codes, credenciais)
+      - waha_sessions:/app/.sessions
+      
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  waha_sessions:
+    driver: local
+
+# Após deploy, acesse:
+# - Dashboard: http://IP_DA_VPS:3000/dashboard
+# - API Docs: http://IP_DA_VPS:3000/api/docs
+# - Health: http://IP_DA_VPS:3000/health
+
+# Próximo passo: Configurar Nginx reverse proxy com SSL

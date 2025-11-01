@@ -1,0 +1,268 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║   🚀 RESOLVER ERRO CORS - 3 MINUTOS                          ║
+║                                                              ║
+║   RENDIZY v1.0.103.209                                       ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ❌ ERRO ATUAL                                               │
+└──────────────────────────────────────────────────────────────┘
+
+Access to fetch at 'https://uknccixtubkdkofyieie.supabase.co/...'
+from origin 'https://suacasaavenda.com.br' has been blocked by 
+CORS policy: No 'Access-Control-Allow-Origin' header is present
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🎯 CAUSA                                                    │
+└──────────────────────────────────────────────────────────────┘
+
+O backend Supabase está configurado para aceitar apenas:
+  • figma.com
+  • localhost
+
+Mas o seu domínio é:
+  • suacasaavenda.com.br ← BLOQUEADO!
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ✅ SOLUÇÃO                                                  │
+└──────────────────────────────────────────────────────────────┘
+
+Já editei o código do backend para aceitar TODOS os domínios:
+
+ANTES:
+  origin: (origin) => {
+    if (origin.includes('figma.com')) return origin;
+    if (origin.includes('localhost')) return origin;
+    return false; // ❌ NEGAVA seu domínio
+  }
+
+AGORA:
+  origin: "*" // ✅ Aceita QUALQUER domínio
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🚀 FAZER DEPLOY DO BACKEND (ESCOLHA UMA OPÇÃO)             │
+└──────────────────────────────────────────────────────────────┘
+
+
+╔══════════════════════════════════════════════════════════════╗
+║  OPÇÃO 1: Deploy via CLI (Automático - 1 minuto)            ║
+╚══════════════════════════════════════════════════════════════╝
+
+No terminal, execute:
+
+chmod +x ⚡_DEPLOY_BACKEND_AGORA_v1.0.103.209.sh
+./⚡_DEPLOY_BACKEND_AGORA_v1.0.103.209.sh
+
+OU manualmente:
+
+supabase login
+supabase link --project-ref uknccixtubkdkofyieie
+supabase functions deploy make-server-67caf26a --no-verify-jwt
+
+
+╔══════════════════════════════════════════════════════════════╗
+║  OPÇÃO 2: Deploy via Dashboard Supabase (Manual - 3 min)    ║
+╚══════════════════════════════════════════════════════════════╝
+
+1. Acesse:
+   https://supabase.com/dashboard/project/uknccixtubkdkofyieie/functions
+
+2. Clique em:
+   make-server-67caf26a
+
+3. Clique em:
+   "Deploy" ou "Redeploy"
+
+4. Se pedir edição do código, procure a linha com CORS e mude para:
+
+   app.use("/*", cors({
+     origin: "*",
+     allowHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+     allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+     exposeHeaders: ["Content-Length", "Content-Type"],
+     maxAge: 600,
+     credentials: false,
+   }));
+
+5. Salve e aguarde deploy (1-2 minutos)
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ⏳ APÓS O DEPLOY                                            │
+└──────────────────────────────────────────────────────────────┘
+
+1. Aguarde 2-3 minutos
+   (Supabase precisa propagar mudanças)
+
+2. Recarregue a página:
+   Ctrl + Shift + R
+
+3. Clique em:
+   🚀 Ambiente de Produção
+   (Botão verde na faixa amarela)
+
+4. Aguarde redirecionamento automático
+
+5. Verifique Console (F12):
+   Deve ver: ✅ Backend conectado
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🧪 TESTAR SE FUNCIONOU                                      │
+└──────────────────────────────────────────────────────────────┘
+
+TESTE 1: Health Check
+
+curl -I https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health
+
+Deve retornar:
+  HTTP/2 200
+  access-control-allow-origin: *
+
+
+TESTE 2: CORS do seu domínio
+
+curl -I -X OPTIONS \
+  -H "Origin: https://suacasaavenda.com.br" \
+  -H "Access-Control-Request-Method: GET" \
+  https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/organizations
+
+Deve retornar:
+  access-control-allow-origin: *
+  access-control-allow-methods: GET, POST, PUT, PATCH, DELETE, OPTIONS
+
+
+TESTE 3: No navegador (Console F12)
+
+Abra https://suacasaavenda.com.br
+Verifique console:
+
+✅ SUCESSO:
+  ✅ Backend conectado
+  ✅ Organizações carregadas: 1
+  🌐 Modo offline DESATIVADO
+
+❌ AINDA COM ERRO:
+  ❌ CORS error
+  🎭 MOCK MODE ATIVO
+  → Aguarde mais 2 minutos e recarregue
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ❓ POR QUE USAR origin: "*" ?                              │
+└──────────────────────────────────────────────────────────────┘
+
+O RENDIZY é um SaaS Multi-Tenant onde:
+
+✅ Cada cliente tem seu DOMÍNIO CUSTOMIZADO:
+   • suacasaavenda.com.br
+   • minhasreservas.com
+   • casaspraia.net
+   • etc.
+
+✅ Impossível prever todos os domínios
+
+✅ Cliente pode mudar domínio a qualquer momento
+
+✅ Seguro porque:
+   • Autenticação é via JWT (não cookies)
+   • Sem compartilhamento de credenciais
+   • RLS (Row Level Security) no banco
+   • Multi-tenancy isolado
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🐛 TROUBLESHOOTING                                          │
+└──────────────────────────────────────────────────────────────┘
+
+PROBLEMA: Erro persiste após deploy
+
+SOLUÇÃO:
+  1. Aguarde 2-3 minutos (cache Supabase)
+  2. Limpe cache do navegador:
+     Ctrl+Shift+Delete → Limpar tudo
+  3. Recarregue:
+     Ctrl+Shift+R
+  4. Ative Produção novamente
+
+
+PROBLEMA: Headers CORS não aparecem
+
+VERIFICAR:
+  curl -v -X OPTIONS \
+    -H "Origin: https://suacasaavenda.com.br" \
+    https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health
+
+  Se NÃO mostrar "access-control-allow-origin: *"
+  → Deploy não foi aplicado
+  → Tente novamente
+
+
+PROBLEMA: Backend não responde
+
+VERIFICAR LOGS:
+  supabase functions logs make-server-67caf26a \
+    --project-ref uknccixtubkdkofyieie
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  ✅ CHECKLIST                                                │
+└──────────────────────────────────────────────────────────────┘
+
+PRÉ-DEPLOY:
+  [x] Código CORS editado (origin: "*")
+  [x] Banner reposicionado (esquerda)
+  [x] Versão atualizada (v1.0.103.209)
+  [ ] FAZER DEPLOY DO BACKEND ← VOCÊ ESTÁ AQUI
+
+PÓS-DEPLOY:
+  [ ] Aguardar 2-3 minutos
+  [ ] Recarregar página (Ctrl+Shift+R)
+  [ ] Ativar Produção
+  [ ] Verificar console (sem erros CORS)
+  [ ] Testar criar organização
+  [ ] Confirmar salvou no backend
+
+
+┌──────────────────────────────────────────────────────────────┐
+│  🎯 RESUMO                                                   │
+└──────────────────────────────────────────────────────────────┘
+
+PROBLEMA:
+  CORS bloqueando suacasaavenda.com.br
+
+SOLUÇÃO:
+  1. Código já foi editado (origin: "*")
+  2. Você precisa fazer DEPLOY do backend
+  3. Aguardar 2-3 minutos
+  4. Recarregar e ativar Produção
+
+DEPLOY RÁPIDO:
+  ./⚡_DEPLOY_BACKEND_AGORA_v1.0.103.209.sh
+
+OU MANUAL:
+  https://supabase.com/dashboard/project/uknccixtubkdkofyieie/functions
+
+
+═══════════════════════════════════════════════════════════════
+
+              🚀 FAZER DEPLOY AGORA!
+                  
+  Execute o script:
+  ./⚡_DEPLOY_BACKEND_AGORA_v1.0.103.209.sh
+  
+  Ou acesse o dashboard:
+  https://supabase.com/dashboard/project/uknccixtubkdkofyieie
+
+═══════════════════════════════════════════════════════════════
+
+RENDIZY v1.0.103.209
+CORS Fix para Multi-Tenant SaaS
+
+31 de outubro de 2025

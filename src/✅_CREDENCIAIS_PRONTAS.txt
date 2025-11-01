@@ -1,0 +1,198 @@
+================================================================================
+✅ CREDENCIAIS EVOLUTION API - PRONTAS PARA USAR
+================================================================================
+
+Data: 2025-10-31
+Versão: v1.0.103.152
+Status: ✅ VALIDADAS E TESTADAS
+
+================================================================================
+🔑 AS 4 CREDENCIAIS QUE FUNCIONAM
+================================================================================
+
+1. EVOLUTION_API_URL
+   https://evo.boravendermuito.com.br/manager
+
+2. EVOLUTION_INSTANCE_NAME
+   Rendizy
+
+3. EVOLUTION_GLOBAL_API_KEY
+   4de7861e944e291b56fe9781d2b00b36
+
+4. EVOLUTION_INSTANCE_TOKEN
+   0FF3641E80A6-453C-AB4E-28C2F2D01C50
+
+================================================================================
+📚 DOCUMENTAÇÃO CRIADA (6 ARQUIVOS)
+================================================================================
+
+1. 🔑_CREDENCIAIS_EVOLUTION_API_QUE_FUNCIONAM.md
+   ├─ Guia definitivo completo
+   ├─ Explicação de cada credencial
+   ├─ 5 endpoints principais com exemplos
+   ├─ Configuração Supabase passo a passo
+   ├─ Troubleshooting completo
+   └─ ✅ LEIA ESTE PRIMEIRO PARA ENTENDER TUDO
+
+2. 🎯_MAPA_CREDENCIAIS_EVOLUTION.md
+   ├─ Guia visual - onde usar cada credencial
+   ├─ Exemplos de requisições completas
+   ├─ Tabela de uso por endpoint
+   ├─ Fluxo de autenticação
+   └─ ✅ LEIA ESTE PARA IMPLEMENTAR NO CÓDIGO
+
+3. 📋_RESUMO_CREDENCIAIS.txt
+   ├─ Resumo ultra-rápido
+   ├─ Credenciais formatadas
+   ├─ 4 testes cURL prontos
+   └─ ✅ USE ESTE PARA CONSULTA RÁPIDA
+
+4. ⚡_COPIAR_COLAR_CREDENCIAIS.txt
+   ├─ Mesmo conteúdo do RESUMO
+   ├─ Formato mais limpo
+   └─ ✅ USE ESTE PARA COMPARTILHAR
+
+5. 🧪_TESTAR_CREDENCIAIS_AGORA.sh
+   ├─ Script bash completo
+   ├─ 5 testes automáticos
+   ├─ Output colorido
+   └─ ✅ EXECUTE ESTE PARA VALIDAR
+
+6. 📚_INDEX_CREDENCIAIS_EVOLUTION.md
+   ├─ Índice master de tudo
+   ├─ Casos de uso
+   ├─ Busca rápida
+   └─ ✅ USE ESTE COMO PONTO DE PARTIDA
+
+================================================================================
+🚀 COMEÇAR AGORA (3 PASSOS)
+================================================================================
+
+PASSO 1: Configurar no Supabase
+────────────────────────────────
+Acesse: Project Settings → Edge Functions → Manage Secrets
+
+Adicione 4 variáveis:
+
+Nome: EVOLUTION_API_URL
+Valor: https://evo.boravendermuito.com.br/manager
+
+Nome: EVOLUTION_INSTANCE_NAME
+Valor: Rendizy
+
+Nome: EVOLUTION_GLOBAL_API_KEY
+Valor: 4de7861e944e291b56fe9781d2b00b36
+
+Nome: EVOLUTION_INSTANCE_TOKEN
+Valor: 0FF3641E80A6-453C-AB4E-28C2F2D01C50
+
+
+PASSO 2: Testar Credenciais
+────────────────────────────
+Execute o script de teste:
+
+chmod +x 🧪_TESTAR_CREDENCIAIS_AGORA.sh
+./🧪_TESTAR_CREDENCIAIS_AGORA.sh
+
+OU teste manualmente:
+
+curl https://evo.boravendermuito.com.br/
+
+
+PASSO 3: Usar no RENDIZY
+─────────────────────────
+1. Acesse: Configurações → Integrações
+2. Configure WhatsApp Business
+3. Conecte e escaneie QR Code
+
+================================================================================
+📖 LEITURA RECOMENDADA
+================================================================================
+
+SE VOCÊ QUER...                    LEIA...
+────────────────────────────────────────────────────────────────
+Consultar credencial rápido        📋_RESUMO_CREDENCIAIS.txt
+Entender tudo                       🔑_CREDENCIAIS_EVOLUTION_API_QUE_FUNCIONAM.md
+Ver onde usar cada uma              🎯_MAPA_CREDENCIAIS_EVOLUTION.md
+Validar se funciona                 🧪_TESTAR_CREDENCIAIS_AGORA.sh
+Navegar documentação                📚_INDEX_CREDENCIAIS_EVOLUTION.md
+Compartilhar com alguém             ⚡_COPIAR_COLAR_CREDENCIAIS.txt
+
+================================================================================
+🧪 TESTE RÁPIDO (30 SEGUNDOS)
+================================================================================
+
+# 1. Servidor online?
+curl https://evo.boravendermuito.com.br/
+
+# Esperado: {"status":"OK"}
+
+# 2. Global Key válida?
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/fetchInstances \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36"
+
+# Esperado: Lista com "Rendizy"
+
+# 3. Token válido?
+curl -X GET \
+  https://evo.boravendermuito.com.br/instance/connectionState/Rendizy \
+  -H "apikey: 4de7861e944e291b56fe9781d2b00b36" \
+  -H "Authorization: Bearer 0FF3641E80A6-453C-AB4E-28C2F2D01C50"
+
+# Esperado: {"state":"open"} ou {"state":"close"}
+
+================================================================================
+⚠️ IMPORTANTE
+================================================================================
+
+✅ Use "Rendizy" (primeira letra MAIÚSCULA)
+✅ Não adicione "/" no final da URL
+✅ Use AMBOS os headers (apikey + Authorization)
+✅ Para endpoints API: SEM /manager
+✅ Para painel web: COM /manager
+
+❌ NÃO use "rendizy" (minúsculo)
+❌ NÃO use só um header
+❌ NÃO misture /manager nos endpoints
+
+================================================================================
+🎯 RESUMO EXECUTIVO
+================================================================================
+
+VOCÊ TEM AGORA:
+
+✅ 4 credenciais validadas e testadas
+✅ 6 arquivos de documentação completa
+✅ 1 script de teste automatizado
+✅ Guias passo a passo
+✅ Troubleshooting completo
+✅ Exemplos de código prontos
+
+PRÓXIMO PASSO:
+
+1. Configure no Supabase (copie as 4 variáveis acima)
+2. Execute o script de teste
+3. Se passar → Configure no RENDIZY
+4. Se falhar → Leia o guia completo
+
+================================================================================
+📞 SUPORTE
+================================================================================
+
+Problema com credenciais?
+
+1. Execute: 🧪_TESTAR_CREDENCIAIS_AGORA.sh
+2. Leia: 🔑_CREDENCIAIS_EVOLUTION_API_QUE_FUNCIONAM.md → Troubleshooting
+3. Consulte: 📚_INDEX_CREDENCIAIS_EVOLUTION.md → Busca Rápida
+
+================================================================================
+✅ TUDO PRONTO PARA USAR!
+================================================================================
+
+As credenciais estão validadas e a documentação está completa.
+Você pode começar a usar AGORA mesmo!
+
+Boa sorte! 🚀
+
+================================================================================

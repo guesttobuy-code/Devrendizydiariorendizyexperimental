@@ -1,0 +1,85 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║               🚨 RESOLVER ERRO 401 - COPIAR & COLAR          ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+
+📋 COPIE ESTES 3 VALORES EXATAMENTE:
+
+┌───────────────────────────────────────────────────────────────┐
+│ 1️⃣ URL DA EVOLUTION API                                       │
+├───────────────────────────────────────────────────────────────┤
+│                                                               │
+│   https://evo.boravendermuito.com.br                          │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────┐
+│ 2️⃣ NOME DA INSTÂNCIA                                          │
+├───────────────────────────────────────────────────────────────┤
+│                                                               │
+│   Rendizy                                                     │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+┌───────────────────────────────────────────────────────────────┐
+│ 3️⃣ API KEY (NOVA - VÁLIDA)                                    │
+├───────────────────────────────────────────────────────────────┤
+│                                                               │
+│   4de7861e944e291b56fe9781d2b00b36                            │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+
+🎯 ONDE COLAR:
+
+1. Abra: http://localhost:5173
+
+2. Menu lateral → ⚙️ Configurações
+
+3. Clique em: 🔌 Integrações
+
+4. Clique em: 💬 WhatsApp
+
+5. Preencha os 3 campos com os valores acima ☝️
+
+6. Clique: 💾 Salvar Configurações
+
+7. Clique: 🔄 Testar Conexão
+
+8. Deve aparecer: ✅ Sucesso!
+
+
+✅ RESULTADO ESPERADO:
+
+┌───────────────────────────────────────────────────────────────┐
+│                                                               │
+│  ✅ Configurações salvas com sucesso!                        │
+│  ✅ Conexão testada com sucesso!                             │
+│  ✅ Erro 401 resolvido!                                      │
+│                                                               │
+└───────────────────────────────────────────────────────────────┘
+
+
+⚠️ ATENÇÃO:
+
+❌ NÃO ADICIONE ESPAÇOS
+❌ NÃO ADICIONE /manager NA URL
+❌ NÃO USE O TOKEN DA INSTÂNCIA (0FF3641E80A6...)
+✅ USE A GLOBAL API KEY (4de7861e944e291b56fe9781d2b00b36)
+
+
+🚀 DEPOIS DE SALVAR:
+
+1. Vá para aba: "Status & Conexão"
+2. Clique: "📱 Gerar QR Code"
+3. Escaneie com WhatsApp
+4. ✅ Conectado!
+
+
+═══════════════════════════════════════════════════════════════
+
+Tempo total: 2 minutos ⏱️
+
+═══════════════════════════════════════════════════════════════

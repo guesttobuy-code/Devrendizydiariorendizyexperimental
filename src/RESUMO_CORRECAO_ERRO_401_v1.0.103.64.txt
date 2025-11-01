@@ -1,0 +1,120 @@
+================================================================================
+🔧 CORREÇÃO APLICADA - ERRO 401 v1.0.103.64
+================================================================================
+
+Versão: v1.0.103.64
+Data: 2025-10-30
+Status: ✅ CORREÇÃO APLICADA
+
+================================================================================
+🐛 PROBLEMA
+================================================================================
+
+Erro 401 ao tentar conectar WhatsApp, mesmo com Global API Key correta.
+
+Mensagem:
+  "API Key inválida ou sem permissão"
+
+Causa:
+  Backend enviava API Key duplicada (headers + body com campo "token")
+
+================================================================================
+✅ CORREÇÃO
+================================================================================
+
+Arquivo: /supabase/functions/server/routes-chat.ts
+
+REMOVIDO campo "token" do body ao criar instância:
+
+Antes:
+  {
+    instanceName: 'Rendizy',
+    token: api_key,           ← REMOVIDO
+    qrcode: true,
+    integration: 'WHATSAPP-BAILEYS'
+  }
+
+Depois:
+  {
+    instanceName: 'Rendizy',
+    qrcode: true,              ← SEM TOKEN
+    integration: 'WHATSAPP-BAILEYS'
+  }
+
+Global API Key continua sendo enviada nos HEADERS (correto).
+
+================================================================================
+🚀 PRÓXIMOS PASSOS
+================================================================================
+
+1. REINICIAR BACKEND
+   
+   Ctrl+C (parar servidor)
+   npm run dev (iniciar novamente)
+
+2. CONFIGURAR WHATSAPP
+   
+   URL: https://evo.boravendermuito.com.br
+   Instância: Rendizy
+   API Key: 4de7861e944e291b56fe9781d2b00b36
+
+3. SALVAR E TESTAR
+   
+   Salvar Configurações → ✅ sucesso
+   Testar Conexão → ✅ sucesso
+
+4. GERAR QR CODE
+   
+   Status & Conexão → Gerar QR Code → ✅ aparece
+
+5. CONECTAR WHATSAPP
+   
+   WhatsApp celular → Escanear → ✅ conectado
+
+================================================================================
+⏱️ TEMPO ESTIMADO
+================================================================================
+
+Reiniciar backend:     30 segundos
+Configurar:            1 minuto
+Gerar QR Code:         30 segundos
+Conectar WhatsApp:     30 segundos
+
+TOTAL:                 ~2-3 minutos
+
+================================================================================
+📚 DOCUMENTAÇÃO
+================================================================================
+
+Detalhes da correção:
+  CHANGELOG_v1.0.103.64_FIX_ERRO_401_TOKEN.md
+
+Guia de teste:
+  TESTE_AGORA_CORRECAO_401_v1.0.103.64.md
+
+Guia completo WhatsApp:
+  TESTE_AGORA_WHATSAPP_v1.0.103.63.md
+
+================================================================================
+✅ CHECKLIST
+================================================================================
+
+- [ ] Ler este resumo
+- [ ] Reiniciar backend
+- [ ] Abrir RENDIZY
+- [ ] Configurar credenciais
+- [ ] Salvar: ✅ sucesso
+- [ ] Testar: ✅ sucesso
+- [ ] Gerar QR Code: ✅ aparece
+- [ ] Conectar WhatsApp: ✅ conectado
+
+================================================================================
+🎯 RESULTADO ESPERADO
+================================================================================
+
+✅ Sem erro 401
+✅ QR Code gerado
+✅ WhatsApp conectado
+✅ Status: 🟢 Conectado
+
+================================================================================

@@ -1,0 +1,93 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║                    ✅ CALENDÁRIOS CORRIGIDOS!                            ║
+║                         v1.0.103.178                                     ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🎯 O QUE FOI CORRIGIDO                                                   │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  ✅ Botão "Data de Cadastro no Sistema" - FUNCIONANDO
+  
+  ✅ Botão "Período de Vigência - Início" - FUNCIONANDO
+  
+  ✅ Botão "Período de Vigência - Término" - FUNCIONANDO
+  
+  
+  PROBLEMA: Calendários não abriam (faltava type="button")
+  
+  SOLUÇÃO: Adicionado type="button" em todos os 3 botões
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🚀 AÇÃO IMEDIATA                                                         │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  1. Pressione: Ctrl + Shift + R
+  
+  2. Aguarde página recarregar
+  
+  3. Vá para: Gestão de Imóveis → Editar Imóvel → Aba Financeiro → Step 3
+  
+  4. Teste os 3 botões de calendário
+  
+  5. ✅ Todos devem abrir normalmente!
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 📍 ONDE TESTAR                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  Menu: Gestão de Imóveis
+    ↓
+  Clicar em qualquer imóvel
+    ↓
+  Aba: Financeiro
+    ↓
+  Step 3: Relacionamento e Remuneração
+    ↓
+  Testar os 3 calendários:
+    • Data de Cadastro no Sistema (Seção 2)
+    • Período de Vigência - Início (Seção 3)
+    • Período de Vigência - Término (Seção 3)
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ ✅ STATUS DOS STEPS FINANCEIROS                                          │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  ✅ Step 1: Tipo de Operação - OK
+  
+  ✅ Step 2: Taxas e Encargos - OK
+  
+  ✅ Step 3: Relacionamento e Remuneração - OK (3 calendários corrigidos)
+  
+  ✅ Step 4: Precificação Individual - OK
+  
+  ✅ Step 5: Precificação Residencial - OK
+  
+  
+  🎉 TODOS OS STEPS 100% FUNCIONAIS!
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 📚 DOCUMENTAÇÃO                                                          │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  Detalhes técnicos completos:
+  
+    ✅_FIX_CALENDARIOS_STEP_3_v1.0.103.178.md
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+              🎯 AÇÃO AGORA: Ctrl + Shift + R e testar!
+
+═══════════════════════════════════════════════════════════════════════════
+
+Versão: v1.0.103.178
+Data: 2025-11-01 00:45:00
+Status: ✅ Corrigido

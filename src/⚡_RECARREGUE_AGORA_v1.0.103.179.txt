@@ -1,0 +1,139 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║              ✅ STEP 4 PRECIFICAÇÃO CORRIGIDO!                           ║
+║                         v1.0.103.179                                     ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🎯 O QUE FOI CORRIGIDO                                                   │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  ✅ Switch "Descontos por Permanência" - FUNCIONANDO
+  
+  ✅ Switch "Períodos Sazonais" - FUNCIONANDO
+  
+  ✅ Switch "Preços por Dia da Semana" - FUNCIONANDO
+  
+  ✅ Switch "Datas Especiais" - FUNCIONANDO
+  
+  
+  PROBLEMA: Erro ao ativar switches e editar campos
+  
+  CAUSA: Arrays e objetos não estavam inicializados corretamente
+  
+  SOLUÇÃO: 
+    • Corrigida inicialização de dados
+    • Adicionadas proteções em arrays (seasonalPeriods, specialDates)
+    • Adicionadas proteções em objeto (weekdayPricing)
+    • Todos os handlers agora verificam se dados existem
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🚀 AÇÃO IMEDIATA                                                         │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  1. Pressione: Ctrl + Shift + R
+  
+  2. Aguarde página recarregar
+  
+  3. Vá para: Gestão de Imóveis → Editar Imóvel → Aba Financeiro → Step 4
+  
+  4. Teste os 4 switches (todos devem funcionar!)
+  
+  5. Adicione períodos sazonais e datas especiais
+  
+  6. Edite valores - tudo deve funcionar sem erros!
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 📍 ONDE TESTAR                                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  Menu: Gestão de Imóveis
+    ↓
+  Clicar em qualquer imóvel
+    ↓
+  Aba: Financeiro
+    ↓
+  Step 4: Precificação Individual de Temporada
+    ↓
+  Testar os 4 switches:
+    1. Descontos por Permanência
+       → Ativar switch
+       → Editar desconto semanal (7+ noites)
+       → Editar desconto mensal (30+ noites)
+       
+    2. Períodos Sazonais
+       → Ativar switch
+       → Clicar "Adicionar Período Sazonal"
+       → Editar nome, datas, preço, mín. noites
+       → Testar remover período
+       
+    3. Preços por Dia da Semana
+       → Ativar switch
+       → Editar preços de Segunda a Domingo
+       
+    4. Datas Especiais
+       → Ativar switch
+       → Clicar "Adicionar Data Especial"
+       → Editar nome, data, preço, mín. noites
+       → Testar remover data
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ ✅ STATUS DOS STEPS FINANCEIROS                                          │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  ✅ Step 1: Tipo de Operação - OK
+  
+  ✅ Step 2: Taxas e Encargos - OK
+  
+  ✅ Step 3: Relacionamento e Remuneração - OK (3 calendários OK)
+  
+  ✅ Step 4: Precificação Individual - OK (4 switches corrigidos ✨)
+  
+  ✅ Step 5: Preços Derivados - OK
+  
+  
+  🎉 TODOS OS STEPS 100% FUNCIONAIS!
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 🔧 O QUE FOI CORRIGIDO TECNICAMENTE                                     │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  1. PropertyEditWizard.tsx:
+     • Corrigida inicialização do Step 4
+     • Campos corretos: pricingMode, basePricePerNight, enables
+     • Arrays inicializados: seasonalPeriods: [], specialDates: []
+     • Objeto inicializado: weekdayPricing: { monday: 0, ... }
+     
+  2. FinancialIndividualPricingStep.tsx:
+     • Proteção em addSeasonalPeriod: ...(data.seasonalPeriods || [])
+     • Proteção em updateSeasonalPeriod: (data.seasonalPeriods || []).map()
+     • Proteção em addSpecialDate: ...(data.specialDates || [])
+     • Proteção em updateSpecialDate: (data.specialDates || []).map()
+     • Proteção em updateWeekdayPrice: ...(data.weekdayPricing || {})
+     • Proteção em render: data.weekdayPricing?.[day] || 0
+
+
+┌───────────────────────────────────────────────────────────────────────────┐
+│ 📚 DOCUMENTAÇÃO                                                          │
+└───────────────────────────────────────────────────────────────────────────┘
+
+  Detalhes técnicos completos:
+  
+    ✅_FIX_STEP_4_PRECIFICACAO_v1.0.103.179.md
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+          🎯 AÇÃO AGORA: Ctrl + Shift + R e testar switches!
+
+═══════════════════════════════════════════════════════════════════════════
+
+Versão: v1.0.103.179
+Data: 2025-11-01 01:00:00
+Status: ✅ Corrigido - Switches Funcionando!

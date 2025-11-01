@@ -1,0 +1,98 @@
+═══════════════════════════════════════════════════════════════════════════════
+  🪝 WEBHOOK EVOLUTION API - COPIAR E COLAR
+  Versão: v1.0.103.94 | Data: 30/10/2025
+═══════════════════════════════════════════════════════════════════════════════
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 URL DO WEBHOOK (COPIE ISTO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/whatsapp/webhook
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 ONDE COLAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ ACESSE:
+   https://evo.boravendermuito.com.br/manager/
+
+2️⃣ FAÇA LOGIN
+
+3️⃣ MENU LATERAL → "Instâncias"
+
+4️⃣ ENCONTRE: "Rendizy"
+
+5️⃣ CLIQUE: Ícone de Editar (lápis/engrenagem)
+
+6️⃣ PROCURE A SEÇÃO: "Webhook" ou "Webhooks"
+
+7️⃣ COLE A URL NO CAMPO "Webhook URL"
+
+8️⃣ SELECIONE TODOS OS EVENTOS:
+   ✅ messages.upsert
+   ✅ messages.update
+   ✅ connection.update
+   ✅ qr.updated
+   ✅ chats.upsert
+   ✅ chats.update
+   ✅ contacts.upsert
+   ✅ contacts.update
+
+9️⃣ CLIQUE: "Salvar" ou "Atualizar"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ VERIFICAR SE FUNCIONOU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ Envie uma mensagem para o WhatsApp conectado
+
+2️⃣ Abra o Console (F12) nos logs do Supabase:
+   
+   supabase functions logs make-server-67caf26a
+
+3️⃣ Deve aparecer:
+   
+   [WhatsApp Webhook] 📨 Recebido evento: messages.upsert
+   [WhatsApp Webhook] ✉️ Nova mensagem recebida
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎊 RESULTADO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Mensagens em tempo real
+✅ Status de conexão atualizado automaticamente
+✅ QR Code atualizado automaticamente
+✅ Conversas sincronizadas
+✅ Contatos sincronizados
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 DOCUMENTAÇÃO COMPLETA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Leia: WEBHOOK_EVOLUTION_CONFIGURAR_v1.0.103.94.md
+
+Contém:
+├─ Explicação completa do webhook
+├─ Todos os eventos disponíveis
+├─ Formato dos dados recebidos
+├─ Testes detalhados
+└─ Troubleshooting completo
+
+═══════════════════════════════════════════════════════════════════════════════
+Versão: v1.0.103.94 | Data: 30/10/2025 | Sistema: RENDIZY SaaS B2B
+Status: ✅ Webhook Implementado!
+═══════════════════════════════════════════════════════════════════════════════
+
+RESUMO SUPER RÁPIDO:
+
+1. COPIE: https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/whatsapp/webhook
+
+2. COLE: Evolution Manager → Instâncias → Rendizy → Editar → Webhook URL
+
+3. SELECIONE: Todos os eventos
+
+4. SALVE: Clique em Salvar
+
+5. PRONTO! ✅
+
+═══════════════════════════════════════════════════════════════════════════════

@@ -1,0 +1,109 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║          ⚡ DEPLOY BACKEND NO SUPABASE - v1.0.103.181      ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+🎯 OBJETIVO
+═══════════════════════════════════════════════════════════════
+
+Resolver definitivamente:
+  ❌ "Erro ao buscar tipos: TypeError: Failed to fetch"
+  ❌ "Backend indisponível. Usando dados mockados"
+  ❌ Erro 404 na importação de contatos do WhatsApp
+
+
+📋 EXECUTAR AGORA
+═══════════════════════════════════════════════════════════════
+
+OPÇÃO A - Deploy Automático (RECOMENDADO):
+───────────────────────────────────────────────────────────────
+
+    chmod +x DEPLOY_BACKEND_NOW.sh
+    ./DEPLOY_BACKEND_NOW.sh
+
+
+OPÇÃO B - Deploy Manual:
+───────────────────────────────────────────────────────────────
+
+    # 1. Login
+    supabase login
+
+    # 2. Linkar projeto
+    supabase link --project-ref uknccixtubkdkofyieie
+
+    # 3. Deploy
+    cd supabase/functions
+    supabase functions deploy make-server-67caf26a --no-verify-jwt
+    cd ../..
+
+    # 4. Testar
+    curl https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health
+
+
+📋 CONFIGURAR VARIÁVEIS DE AMBIENTE
+═══════════════════════════════════════════════════════════════
+
+DEPOIS DO DEPLOY, configure as secrets da Evolution API:
+───────────────────────────────────────────────────────────────
+
+    supabase secrets set EVOLUTION_API_URL=https://evo.boravendermuito.com.br
+    supabase secrets set EVOLUTION_INSTANCE_NAME=rendizy-admin-master
+    supabase secrets set EVOLUTION_GLOBAL_API_KEY=F7DE5EFFB66B-4E43-B11F-F0D5D8849741
+    supabase secrets set EVOLUTION_INSTANCE_TOKEN=E9E7BE03F0A4-422C-BB1D-5A1CA7F25555
+
+    # RE-DEPLOY após configurar (OBRIGATÓRIO!)
+    cd supabase/functions
+    supabase functions deploy make-server-67caf26a --no-verify-jwt
+    cd ../..
+
+
+📋 TESTAR
+═══════════════════════════════════════════════════════════════
+
+    chmod +x 🧪_TESTAR_PROPERTY_TYPES_AGORA.sh
+    ./🧪_TESTAR_PROPERTY_TYPES_AGORA.sh
+
+
+✅ RESULTADO ESPERADO
+═══════════════════════════════════════════════════════════════
+
+No console do navegador, você vai ver:
+
+    ✅ Property types carregados do backend: 53 tipos
+    
+E a importação de contatos do WhatsApp vai funcionar sem erro 404!
+
+
+🎉 BENEFÍCIOS
+═══════════════════════════════════════════════════════════════
+
+    ✅ 50+ tipos de propriedade reais (Location + Accommodation)
+    ✅ Importação de contatos WhatsApp funcionando
+    ✅ Auto-save em todas as telas
+    ✅ Persistência real de dados
+    ✅ Multi-tenant com organizações
+    ✅ Integração completa com Stays.net e Booking.com
+
+
+📚 DOCUMENTAÇÃO COMPLETA
+═══════════════════════════════════════════════════════════════
+
+    🚀_DEPLOY_BACKEND_AGORA_v1.0.103.181.md
+
+
+⚡ COMANDO RÁPIDO (COPIAR E COLAR)
+═══════════════════════════════════════════════════════════════
+
+supabase login && \
+supabase link --project-ref uknccixtubkdkofyieie && \
+cd supabase/functions && \
+supabase functions deploy make-server-67caf26a --no-verify-jwt && \
+cd ../.. && \
+curl https://uknccixtubkdkofyieie.supabase.co/functions/v1/make-server-67caf26a/health
+
+
+═══════════════════════════════════════════════════════════════
+          🚀 DEPOIS DISSO, RECARREGUE O RENDIZY! 🚀
+═══════════════════════════════════════════════════════════════

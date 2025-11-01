@@ -1,0 +1,188 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+               🎉 RENDIZY v1.0.103.185 - DASHBOARD UNIFICADO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📅 Data: 31 de Outubro de 2025
+🎯 Mudança Principal: Analytics integrado ao Dashboard
+⏱️  Tempo de implementação: Completo
+📊 Impacto: Melhor UX e organização
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                          📝 RESUMO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+As funcionalidades de Analytics foram integradas ao Dashboard Inicial,
+criando uma experiência unificada com sistema de abas:
+
+   🏠 Visão Geral → Operacional do dia (check-ins, conflitos, etc)
+   📊 Analytics   → Métricas, KPIs e gráficos interativos
+
+O botão "Analytics" foi removido do menu lateral, resultando em
+navegação mais simples e intuitiva.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    ✅ ANTES vs DEPOIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ANTES:
+┌─────────────────┐         ┌─────────────────┐
+│ Dashboard       │         │ Analytics       │
+│ Inicial         │         │                 │
+│                 │         │ • KPIs          │
+│ • Conflitos     │         │ • Gráficos      │
+│ • Check-ins     │         │ • Métricas      │
+│ • Estatísticas  │         │ • Relatórios    │
+└─────────────────┘         └─────────────────┘
+    Separados no menu
+
+DEPOIS:
+┌─────────────────────────────────────────────┐
+│ Dashboard Unificado                         │
+│                                             │
+│ [🏠 Visão Geral]  [📊 Analytics]           │
+│                                             │
+│ ┌─────────────────────────────────────────┐ │
+│ │ Conteúdo dinâmico por aba              │ │
+│ │                                         │ │
+│ │ Visão Geral:                            │ │
+│ │ • Conflitos                             │ │
+│ │ • Check-ins/outs hoje                   │ │
+│ │ • Próximas reservas                     │ │
+│ │                                         │ │
+│ │ Analytics:                              │ │
+│ │ • 4 KPIs com tendências                 │ │
+│ │ • 4 gráficos interativos                │ │
+│ │ • Filtro de período                     │ │
+│ │ • Estatísticas rápidas                  │ │
+│ └─────────────────────────────────────────┘ │
+└─────────────────────────────────────────────┘
+    Tudo integrado em um componente
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    🎯 FUNCIONALIDADES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ABA "VISÃO GERAL":
+✅ Cards de estatísticas principais
+   • Propriedades totais
+   • Reservas ativas
+   • Check-ins hoje (azul)
+   • Check-outs hoje (laranja)
+
+✅ Alerta de conflitos (se houver)
+✅ Lista de check-ins de hoje (clicável)
+✅ Lista de check-outs de hoje (clicável)
+✅ Próximas 10 reservas confirmadas
+
+ABA "ANALYTICS":
+✅ Filtro de período
+   • 7 dias
+   • 30 dias
+   • 90 dias
+   • 12 meses
+
+✅ 4 KPIs principais
+   • Receita Total (R$ + tendência %)
+   • Taxa de Ocupação (% + tendência)
+   • Total de Reservas (# + confirmadas)
+   • Total de Propriedades (# + ativas)
+
+✅ 4 Gráficos Interativos
+   • Receita por Mês (área chart)
+   • Taxa de Ocupação (line chart)
+   • Top 5 Imóveis (bar chart)
+   • Status das Reservas (pie chart)
+
+✅ 3 Estatísticas Rápidas
+   • Ticket Médio
+   • Imóveis Ativos
+   • Check-ins Hoje
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    📁 ARQUIVOS MODIFICADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. /components/DashboardInicial.tsx
+   ✅ Sistema de abas implementado
+   ✅ Analytics totalmente integrado
+   ✅ KPIs e gráficos funcionando
+   ✅ Cálculos de métricas
+
+2. /components/MainSidebar.tsx
+   ❌ Botão "Analytics" removido
+   ✅ "Dashboard Inicial" → "Dashboard"
+
+3. /App.tsx
+   ❌ Rota dashboard-analytics removida
+   ❌ Import DashboardAnalytics removido
+
+4. /BUILD_VERSION.txt
+   v1.0.103.184 → v1.0.103.185
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    💡 BENEFÍCIOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Para o Usuário:
+✅ Navegação mais simples
+✅ Menu lateral mais limpo
+✅ Acesso rápido entre visões
+✅ Contexto unificado
+✅ Menos cliques necessários
+
+Para o Sistema:
+✅ Código consolidado
+✅ Menos componentes
+✅ Melhor manutenibilidade
+✅ Performance otimizada
+✅ Reutilização de dados
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    🎨 COMPATIBILIDADE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Dark Mode: 100% compatível
+✅ Responsivo: Mobile, tablet, desktop
+✅ Gráficos: Adaptativos ao tamanho
+✅ Temas: Ajuste automático de cores
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    🚀 COMO USAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Clique em "Dashboard" no menu lateral
+
+2. Navegue entre as abas:
+   • "Visão Geral" para operacional do dia
+   • "Analytics" para métricas e análises
+
+3. Na aba Analytics:
+   • Use o filtro de período conforme necessário
+   • Explore os gráficos interativos
+   • Veja KPIs com tendências
+
+4. Clique em reservas para ver detalhes
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    ⚡ RECARREGUE AGORA!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Pressione: Ctrl+R (Windows/Linux) ou Cmd+R (Mac)
+
+Para ver o novo Dashboard unificado funcionando!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Versão: v1.0.103.185
+Data: 31 de Outubro de 2025
+Status: Dashboard Unificado com Analytics Integrado ✨
+Impacto: Melhor UX, menu mais limpo, acesso rápido

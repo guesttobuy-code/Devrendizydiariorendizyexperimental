@@ -1,0 +1,138 @@
+🧪 TESTE RÁPIDO - Locais e Anúncios v1.0.103.174
+================================================
+
+📋 CHECKLIST DE TESTE (5 minutos)
+
+✅ TESTE 1: Menu "Locais e Anúncios" Aparece
+-----------------------------------------------
+1. Recarregar página (Ctrl + Shift + R)
+2. Olhar menu lateral esquerdo
+3. Procurar item "Locais e Anúncios" 
+4. ✅ DEVE ESTAR VISÍVEL (não comentado)
+
+✅ TESTE 2: Clicar em "Locais e Anúncios"
+-----------------------------------------------
+1. Clicar no item "Locais e Anúncios" no menu
+2. Aguardar carregamento
+3. VERIFICAR:
+   ✅ URL muda para /properties
+   ✅ Lista de imóveis aparece
+   ✅ Menu lateral CONTINUA VISÍVEL
+   ✅ NÃO tem loading infinito
+   ✅ NÃO mostra página NotFound
+
+✅ TESTE 3: Criar Nova Propriedade
+-----------------------------------------------
+1. Clicar botão "Nova Propriedade" (azul, topo direita)
+2. VERIFICAR:
+   ✅ URL muda para /properties/new
+   ✅ Wizard de criação abre
+   ✅ Menu lateral CONTINUA VISÍVEL à esquerda
+   ✅ Header mostra "Nova Propriedade"
+
+✅ TESTE 4: Menu Funciona Durante Edição
+-----------------------------------------------
+1. Estar na tela de "Nova Propriedade"
+2. Clicar em "Calendário" no menu lateral
+3. VERIFICAR:
+   ✅ Navega para calendário normalmente
+   ✅ SEM erro
+   ✅ SEM travamento
+   ✅ Transição suave (sem reload de página)
+
+✅ TESTE 5: Editar Propriedade Existente
+-----------------------------------------------
+1. Voltar para /properties (clicar "Locais e Anúncios")
+2. Se houver imóveis, clicar "Editar" em um card
+3. VERIFICAR:
+   ✅ URL muda para /properties/XXX/edit
+   ✅ Wizard abre com dados carregados
+   ✅ Menu lateral CONTINUA VISÍVEL
+   ✅ Pode navegar para outro módulo clicando no menu
+
+✅ TESTE 6: Voltar para Lista
+-----------------------------------------------
+1. Estar em tela de edição/criação
+2. Clicar botão "Voltar para Imóveis" (topo esquerda)
+3. VERIFICAR:
+   ✅ Volta para /properties
+   ✅ Lista aparece
+   ✅ SEM reload de página (transição suave)
+   ✅ Menu continua visível
+
+🎯 TESTES DE NAVEGAÇÃO AVANÇADOS
+=================================
+
+✅ TESTE 7: Browser Back/Forward
+-----------------------------------------------
+1. Navegar: Locais → Nova → Voltar → Editar
+2. Usar botão "Voltar" do navegador
+3. VERIFICAR:
+   ✅ Navegação funciona corretamente
+   ✅ URLs corretas
+   ✅ Estado preservado
+
+✅ TESTE 8: Reload Durante Edição
+-----------------------------------------------
+1. Abrir /properties/XXX/edit
+2. Pressionar F5 (reload)
+3. VERIFICAR:
+   ✅ Página recarrega corretamente
+   ✅ Dados são recarregados
+   ✅ Menu continua visível
+   ✅ Tudo funciona
+
+✅ TESTE 9: Direct URL Access
+-----------------------------------------------
+1. Copiar URL /properties
+2. Colar em nova aba
+3. VERIFICAR:
+   ✅ Página carrega corretamente
+   ✅ Lista aparece
+   ✅ Menu visível
+
+🚨 PROBLEMAS ESPERADOS (e como verificar que NÃO acontecem)
+===========================================================
+
+❌ NÃO DEVE ACONTECER:
+----------------------
+- Loading infinito (roda sem parar)
+- Página NotFound (404)
+- Menu desaparece ao editar
+- Página recarrega ao clicar "Voltar"
+- Erro no console sobre rotas
+
+✅ DEVE ACONTECER:
+------------------
+- Navegação instantânea
+- Menu sempre presente
+- URLs corretas
+- Transições suaves
+- Console limpo (sem erros)
+
+📝 NOTAS DE TESTE
+=================
+
+Se ALGUM teste falhar:
+1. Abrir DevTools (F12)
+2. Ver console
+3. Anotar erro exato
+4. Anotar qual teste falhou
+5. Reportar imediatamente
+
+Se TODOS testes passarem:
+✅ Sistema funcionando perfeitamente!
+✅ Pode usar módulo normalmente
+✅ Problema resolvido definitivamente
+
+🎉 BOM TESTE!
+=============
+
+Tempo estimado: 5 minutos
+Testes críticos: 6
+Testes avançados: 3
+Total: 9 testes
+
+VERSÃO: v1.0.103.174
+DATA: 31/10/2025
+STATUS: Pronto para produção ✅
